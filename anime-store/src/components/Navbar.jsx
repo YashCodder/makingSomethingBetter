@@ -1,28 +1,75 @@
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
+import React, { useEffect, useState } from "react";
+import "../index.css";
 
-export default function Navbar() {
-  const { cart } = useContext(CartContext);
+const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [hideNav, setHideNav] = useState(false);
+
+  useEffect(() => {
+    let lastScroll = 0;
+
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+
+      setScrolled(currentScroll > 40);
+
+      if (currentScroll > lastScroll && currentScroll > 100) {
+        setHideNav(true); // hide when scrolling down
+      } else {
+        setHideNav(false); // show when scrolling up
+      }
+
+      lastScroll = currentScroll;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <motion.nav
-      className="navbar"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className="logo">ANIMEX</div>
+    <>
+      <nav
+        className={`navbar ${scrolled ? "scrolled" : ""} ${
+          hideNav ? "hide" : ""
+        }`}
+      >
+        <div className="logo">
+          <span className="logo-text">INDIAN ANIME STORE</span>
+        </div>
 
-      <div className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/checkout">Checkout</Link>
-      </div>
+        <ul className="nav-links">
+          <li className="dropdown">
+            Shop
+            <div className="dropdown-menu">
+              <span>Oversized Tees</span>
+              <span>Hoodies</span>
+              <span>Jackets</span>
+            </div>
+          </li>
 
-      <div className="cart-count">
-        🛒 {cart.length}
+          <li>Collections</li>
+          <li>About</li>
+          <li>Journal</li>
+
+          <li className="cart">
+            Cart
+            <span className="cart-count">2</span>
+          </li>
+          <li>Profile</li>
+        </ul>
+      </nav>
+
+      {/* Announcement Bar */}
+      <div className={`announcement ${hideNav ? "hide" : ""}`}>
+        <div className="announcement-content">
+          <span className="announcement-badge">NEW</span>
+          <span className="announcement-text">
+            Complimentary Shipping on All Orders
+          </span>
+        </div>
       </div>
-    </motion.nav>
+    </>
   );
-}
+};
+
+export default Navbar;

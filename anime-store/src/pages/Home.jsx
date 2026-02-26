@@ -1,191 +1,207 @@
 import React from "react";
 import "../index.css";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
+
   return (
     <div className="home">
 
+      <Navbar />
+
       {/* Announcement Bar */}
-      <div className="announcement">
-        EXCLUSIVE DISCOUNT ON ALL ANIME MERCHANDISE
+      {/* <div className="announcement">
+        <div className="announcement-content">
+          <span className="announcement-badge">NEW</span>
+          <span className="announcement-text">
+            Complimentary Shipping on All Orders
+          </span>
+        </div>
+      </div> */}
+
+      {/* Luxury Hero */}
+      <section className="hero">
+
+        <div className="hero-carousel">
+          <div className="slide slide1"></div>
+          <div className="slide slide2"></div>
+          <div className="slide slide3"></div>
+        </div>
+
+        <div className="hero-overlay"></div>
+
+        <div className="hero-text">
+          <h1>
+            Curated Anime
+            <br />
+            Luxury Essentials
+          </h1>
+
+          <p>Elevated merchandise for the modern collector.</p>
+
+          <button className="btn-primary">
+            Explore Collection
+          </button>
+        </div>
+
+      </section>
+
+      {/* Editorial Split Section */}
+      <section className="editorial">
+        <div className="editorial-image">
+          <img
+            src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1974&auto=format&fit=crop"
+            alt="Oversized Streetwear"
+          />
+        </div>
+
+        <div className="editorial-text">
+          <h2>Designed With Precision</h2>
+          <p>
+            Every piece in our collection is thoughtfully designed,
+            crafted with premium fabrics and attention to detail.
+          </p>
+          <button className="btn-outline">Discover</button>
+        </div>
+      </section>
+
+      {/* ================= CUSTOMIZATION SECTION ================= */}
+
+<section className="custom-section">
+  <div className="custom-container">
+    
+    <div className="custom-text">
+      <h2>Crafted. Customized. Yours.</h2>
+      <p>
+        Every piece is carefully tailored in-house. From fabric selection 
+        to final detailing, our team refines each design to ensure a 
+        premium fit and distinctive identity.
+      </p>
+
+      <div className="custom-points">
+        <div className="point">
+          <span>01</span>
+          <p>Hand-finished detailing</p>
+        </div>
+        <div className="point">
+          <span>02</span>
+          <p>Premium sourced fabrics</p>
+        </div>
+        <div className="point">
+          <span>03</span>
+          <p>Limited batch production</p>
+        </div>
       </div>
+    </div>
 
-      {/* Navbar */}
-<nav className="navbar">
+    <div className="custom-image">
+      <img
+        src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?q=80&w=1974&auto=format&fit=crop"
+        alt="Customization Process"
+      />
+    </div>
 
-  <div className="nav-left">
-    <div className="kanji-mark">アニメ</div>
-    <div className="logo">INDIAN ANIME STORE</div>
+  </div>
+</section>
+
+     {/* ULTRA PRODUCT GRID */}
+<section className="products">
+  <div className="products-header">
+    <h2>Selected Pieces</h2>
+    <p>Premium anime-inspired essentials for the modern collector.</p>
   </div>
 
-  <ul className="nav-links">
+  <div className="product-grid">
+    {[
+  {
+    name: "Shadow Clan Hoodie",
+    price: "₹1,999",
+    tag: "NEW",
+    image:
+      "https://images.unsplash.com/photo-1602810319428-019690571b5b?q=80&w=1974&auto=format&fit=crop",
+  },
+  {
+    name: "Tokyo Drift Tee",
+    price: "₹1,499",
+    image:
+      "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&w=1974&auto=format&fit=crop",
+  },
+  {
+    name: "Midnight Street Jacket",
+    price: "₹2,799",
+    image:
+      "https://images.unsplash.com/photo-1603252109303-2751441dd157?q=80&w=1974&auto=format&fit=crop",
+  },
+  {
+    name: "Neo Oversized Drop",
+    price: "₹1,699",
+    image:
+      "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=1974&auto=format&fit=crop",
+  },
+  {
+    name: "Limited Edition Hoodie",
+    price: "₹2,299",
+    image:
+      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1974&auto=format&fit=crop",
+  },
+  {
+    name: "Urban Shinobi Fit",
+    price: "₹1,899",
+    image:
+      "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?q=80&w=1974&auto=format&fit=crop",
+  },
+].map((item, index) => (
+      <div key={index} className="product-card">
+        <div className="product-image-wrapper">
+          {item.tag && <span className="product-badge">{item.tag}</span>}
+          <img src={item.image} alt={item.name} />
+          <div className="product-overlay">
+            <button className="view-btn">View Product</button>
+          </div>
+        </div>
 
-    <li className="nav-item">
-      <span>Apparels</span>
-      <div className="dropdown-menu">
-        <a>Oversized Tees</a>
-        <a>Hoodies</a>
-        <a>Jackets</a>
+        <div className="product-info">
+          <h4>{item.name}</h4>
+          <p>{item.price}</p>
+        </div>
       </div>
-    </li>
+    ))}
+  </div>
+</section>
 
-    <li className="nav-item"><span>Merchandise</span></li>
-
-    <li className="nav-item">
-      <span>Electronics</span>
-      <div className="dropdown-menu">
-        <a>RGB Lamps</a>
-        <a>Headphones</a>
-        <a>Mousepads</a>
-      </div>
-    </li>
-
-    <li className="nav-item"><span>Cart</span></li>
-
-    <li className="nav-item">
-      <span>My Account</span>
-      <div className="dropdown-menu">
-        <a>Profile</a>
-        <a>Orders</a>
-        <a>Logout</a>
-      </div>
-    </li>
-
-    <li className="search">⌕</li>
-
-  </ul>
-
-  <div className="scan-line"></div>
-
-</nav>
-
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-overlay"></div>
-        <div className="hero-content">
-          <h5>EXPLORE THE BEST</h5>
-          <h1>Anime Merchandise</h1>
-          <p>Coming Soon....</p>
-
-          <div className="hero-buttons">
-            <button className="btn primary">Discover</button>
-            <button className="btn outline">Shop</button>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Categories */}
-      <section className="categories">
-        <h2>FEATURED CATEGORIES</h2>
-        <div className="divider"></div>
-        <p className="subtitle">
-          Discover the latest arrivals and exclusive collections
-        </p>
-
-        <div className="category-grid">
-
-          <div className="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1611605698335-8b1569810432"
-              alt="Apparels"
-            />
-            <div className="card-content">
-              <h3>Apparels</h3>
-              <p>Premium anime hoodies & tees</p>
-              <button className="btn small">Explore</button>
-            </div>
-          </div>
-
-          <div className="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db"
-              alt="Merchandise"
-            />
-            <div className="card-content">
-              <h3>Merchandise</h3>
-              <p>Figures, posters & collectibles</p>
-              <button className="btn small">Explore</button>
-            </div>
-          </div>
-
-          <div className="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1606112219348-204d7d8b94ee"
-              alt="Electronics"
-            />
-            <div className="card-content">
-              <h3>Electronics</h3>
-              <p>Anime gadgets & accessories</p>
-              <button className="btn small">Explore</button>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Featured Products */}
-      <section className="products">
-        <h2>BEST SELLERS</h2>
-        <div className="divider"></div>
-
-        <div className="product-grid">
-          {[1, 2, 3, 4].map((item) => (
-            <div key={item} className="product-card">
-              <img
-                src="https://images.unsplash.com/photo-1585386959984-a41552231658"
-                alt="product"
-              />
-              <h4>Anime Hoodie</h4>
-              <p className="price">₹1,499</p>
-              <button className="btn small">Add to Cart</button>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Promo Banner */}
-      <section className="promo">
-        <div className="promo-content">
-          <h2>Level Up Your Collection</h2>
-          <p>Limited Edition Drops Available Now</p>
-          <button className="btn primary">Shop Now</button>
-        </div>
+      {/* Large Statement Banner */}
+      <section className="statement">
+        <h2>
+          Minimal.
+          <br />
+          Timeless.
+          <br />
+          Iconic.
+        </h2>
       </section>
 
       {/* Footer */}
       <footer className="footer">
-        <div className="footer-grid">
-
+        <div className="footer-inner">
           <div>
             <h4>Indian Anime Store</h4>
-            <p>Your ultimate destination for anime merchandise in India.</p>
+            <p>Elevated anime fashion & collectibles.</p>
           </div>
 
           <div>
-            <h4>Shop</h4>
-            <p>Apparels</p>
-            <p>Merchandise</p>
-            <p>Electronics</p>
+            <p>Shop</p>
+            <p>Collections</p>
+            <p>Contact</p>
           </div>
 
           <div>
-            <h4>Support</h4>
-            <p>Contact Us</p>
-            <p>Shipping Policy</p>
-            <p>Returns</p>
-          </div>
-
-          <div>
-            <h4>Follow Us</h4>
             <p>Instagram</p>
-            <p>Facebook</p>
             <p>Twitter</p>
           </div>
-
         </div>
 
         <div className="copyright">
-          © 2026 Indian Anime Store. All rights reserved.
+          © 2026 Indian Anime Store
         </div>
       </footer>
 
