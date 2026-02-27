@@ -18,6 +18,7 @@ body {
   overflow-x: hidden;
 }
 
+
 /* ===================================== */
 /* ===== ULTRA ANNOUNCEMENT BAR ======== */
 /* ===================================== */
@@ -47,7 +48,6 @@ body {
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* 🔥 Hide Announcement */
 .announcement.hide {
   transform: translate(-50%, -150%);
   opacity: 0;
@@ -92,10 +92,6 @@ body {
 /* ============= ULTRA NAV ============= */
 /* ===================================== */
 
-body {
-  margin: 0;
-}
-
 .navbar {
   position: fixed;
   top: 0;
@@ -121,20 +117,11 @@ body {
 
   z-index: 2000;
   transition: transform 0.4s ease, opacity 0.4s ease;
-
-  animation: floatNav 6s ease-in-out infinite;
 }
 
-/* 🔥 Hide Navbar */
 .navbar.hide {
   transform: translate(-50%, -150%);
   opacity: 0;
-}
-
-@keyframes floatNav {
-  0% { transform: translateX(-50%) translateY(0px); }
-  50% { transform: translateX(-50%) translateY(-5px); }
-  100% { transform: translateX(-50%) translateY(0px); }
 }
 
 .navbar.scrolled {
@@ -143,7 +130,10 @@ body {
   box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
 }
 
-/* Logo */
+/* ===================================== */
+/* =============== LOGO ================ */
+/* ===================================== */
+
 .logo-text {
   font-family: 'Playfair Display', serif;
   font-size: 18px;
@@ -158,7 +148,10 @@ body {
   opacity: 0.7;
 }
 
-/* Links */
+/* ===================================== */
+/* =============== LINKS =============== */
+/* ===================================== */
+
 .nav-links {
   list-style: none;
   display: flex;
@@ -196,7 +189,10 @@ body {
   width: 100%;
 }
 
-/* Dropdown */
+/* ===================================== */
+/* ============= DROPDOWN ============== */
+/* ===================================== */
+
 .dropdown {
   position: relative;
 }
@@ -238,7 +234,10 @@ body {
   opacity: 0.6;
 }
 
-/* Cart */
+/* ===================================== */
+/* ================ CART =============== */
+/* ===================================== */
+
 .cart {
   display: flex;
   align-items: center;
@@ -261,6 +260,136 @@ body {
   50% { transform: scale(1.15); }
   100% { transform: scale(1); }
 }
+
+/* ===================================== */
+/* ============ HAMBURGER ============== */
+/* ===================================== */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: #111;
+  transition: 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(7px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-7px);
+}
+
+/* ===================================== */
+/* ============== TABLET =============== */
+/* ===================================== */
+
+@media (max-width: 1024px) {
+
+  .navbar {
+    width: 95%;
+    padding: 16px 5%;
+  }
+
+  .nav-links {
+    gap: 30px;
+  }
+
+  .logo-text {
+    font-size: 16px;
+    letter-spacing: 3px;
+  }
+}
+
+/* ===================================== */
+/* ============== MOBILE =============== */
+/* ===================================== */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    width: 95%;
+    padding: 16px 20px;
+    border-radius: 16px;
+  }
+
+  .logo-text {
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    background: white;
+
+    flex-direction: column;
+    gap: 25px;
+    padding: 30px 0;
+
+    transform: translateY(-20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+  }
+
+  .nav-links.mobile-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-links li {
+    font-size: 14px;
+  }
+
+  .dropdown-menu {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    padding: 10px 0;
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* ===================================== */
+/* ============ SMALL PHONES =========== */
+/* ===================================== */
+
+@media (max-width: 480px) {
+
+  .logo-text {
+    font-size: 12px;
+  }
+
+  .nav-links li {
+    font-size: 13px;
+  }
+
+  .cart-count {
+    font-size: 9px;
+    padding: 3px 6px;
+  }
+}
+
 
 /* ===================================== */
 /* ========= HERO SECTION ============== */

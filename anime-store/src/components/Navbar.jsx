@@ -4,6 +4,7 @@ import "../index.css";
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [hideNav, setHideNav] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     let lastScroll = 0;
@@ -14,9 +15,9 @@ const Navbar = () => {
       setScrolled(currentScroll > 40);
 
       if (currentScroll > lastScroll && currentScroll > 100) {
-        setHideNav(true); // hide when scrolling down
+        setHideNav(true);
       } else {
-        setHideNav(false); // show when scrolling up
+        setHideNav(false);
       }
 
       lastScroll = currentScroll;
@@ -37,7 +38,17 @@ const Navbar = () => {
           <span className="logo-text">INDIAN ANIME STORE</span>
         </div>
 
-        <ul className="nav-links">
+        {/* Hamburger */}
+        <div
+          className={`hamburger ${menuOpen ? "active" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul className={`nav-links ${menuOpen ? "mobile-open" : ""}`}>
           <li className="dropdown">
             Shop
             <div className="dropdown-menu">
@@ -59,7 +70,6 @@ const Navbar = () => {
         </ul>
       </nav>
 
-      {/* Announcement Bar */}
       <div className={`announcement ${hideNav ? "hide" : ""}`}>
         <div className="announcement-content">
           <span className="announcement-badge">NEW</span>
