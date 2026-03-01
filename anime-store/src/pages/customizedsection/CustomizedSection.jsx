@@ -18,7 +18,7 @@ function CustomizedSection() {
                     selection to final detailing, our team refines each design
                     to ensure a premium fit and distinctive identity.
                 </p>
-                <button>Learn More</button>
+                <button><span>Learn More</span></button>
             </div>
         </div>
     </div>

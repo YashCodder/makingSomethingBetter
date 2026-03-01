@@ -68,11 +68,11 @@ font-weight: 700;
 }
 
 /* Button Hover */
-.custom-text-container button:hover{
+/* .custom-text-container button:hover{
     background-color:black;
     color:white;
     transform: translateY(-4px);
-}
+} */
 
 
 /* ============================= */
@@ -121,4 +121,47 @@ font-weight: 700;
     .custom-text p{
         font-size:17px;
     }
+}
+
+
+
+
+
+
+
+.custom-text-container button{
+    background-color:gray;
+    color:black;                /* Always black */
+    width:fit-content;
+    padding:10px 30px;
+    
+    position:relative;
+    overflow:hidden;
+    border:none;
+    cursor:pointer;
+}
+
+/* Sliding white layer */
+.custom-text-container button::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:0%;
+    height:100%;
+    background-color:white;
+    transition:width 0.4s ease;
+    z-index:0;
+}
+
+/* Keep text above animation */
+.custom-text-container button span{
+    position:relative;
+    z-index:1;
+    color:black;                /* Force black */
+}
+
+/* Hover effect */
+.custom-text-container button:hover::before{
+    width:100%;
 }
