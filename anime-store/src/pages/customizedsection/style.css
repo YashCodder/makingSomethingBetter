@@ -1,0 +1,124 @@
+.custom-container{
+    height:600px;
+    width:100%;
+    display:flex;
+    background-color: black;
+}
+
+/* IMAGE SECTION */
+.custom-image{
+    height:100%;
+    width:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden; /* Needed for hover zoom */
+}
+
+.custom-image img{
+    height:78%;
+    width:64%;
+    border-radius:20%;
+    transition: all 0.4s ease;  /* Smooth effect */
+}
+
+/* Image Hover Effect (comes out effect) */
+.custom-image img:hover{
+    transform: scale(1.08) translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* TEXT SECTION */
+.custom-text{
+    height:100%;
+    width:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.custom-text p{
+    font-size:16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.custom-text-container{
+    height:66%;
+    width:111%;
+    display:flex;
+    justify-content:space-between;
+    flex-direction:column;
+}
+
+.custom-text-container h2{
+    font-size:49px;
+    font-family: 'Inter', sans-serif;
+font-weight: 700;
+}
+
+.custom-text-container button{
+    background-color:gray;
+    color:black;
+    width:fit-content;
+    padding:10px 30px;
+    transition: all 0.3s ease;
+    cursor:pointer;
+    font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+
+/* Button Hover */
+.custom-text-container button:hover{
+    background-color:black;
+    color:white;
+    transform: translateY(-4px);
+}
+
+
+/* ============================= */
+/* RESPONSIVE PART (No layout change) */
+/* ============================= */
+
+@media (max-width: 992px){
+    .custom-text-container h2{
+        font-size:42px;
+    }
+}
+
+@media (max-width: 768px){
+    .custom-container{
+        height:auto;
+        flex-direction:column;
+    }
+
+    .custom-image,
+    .custom-text{
+        width:100%;
+        height:auto;
+    }
+
+    .custom-image{
+        padding:40px 0;
+    }
+
+    .custom-text{
+        padding:20px 0 40px 0;
+    }
+
+    .custom-text-container{
+        height:auto;
+        align-items:center;
+        text-align:center;
+        gap:20px;
+    }
+}
+
+@media (max-width: 480px){
+    .custom-text-container h2{
+        font-size:32px;
+    }
+
+    .custom-text p{
+        font-size:17px;
+    }
+}

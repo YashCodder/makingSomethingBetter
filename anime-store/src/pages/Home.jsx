@@ -1,6 +1,7 @@
 import React from "react";
 import "../index.css";
 import Navbar from "../components/Navbar";
+import CustomizedSection from "./customizedsection/CustomizedSection";
 
 const Home = () => {
 
@@ -9,15 +10,7 @@ const Home = () => {
 
       <Navbar />
 
-      {/* Announcement Bar */}
-      {/* <div className="announcement">
-        <div className="announcement-content">
-          <span className="announcement-badge">NEW</span>
-          <span className="announcement-text">
-            Complimentary Shipping on All Orders
-          </span>
-        </div>
-      </div> */}
+      
 
       {/* Luxury Hero */}
       <section className="hero">
@@ -66,43 +59,9 @@ const Home = () => {
       </section>
 
       {/* ================= CUSTOMIZATION SECTION ================= */}
+      <CustomizedSection/>
 
-<section className="custom-section">
-  <div className="custom-container">
-    
-    <div className="custom-text">
-      <h2>Crafted. Customized. Yours.</h2>
-      <p>
-        Every piece is carefully tailored in-house. From fabric selection 
-        to final detailing, our team refines each design to ensure a 
-        premium fit and distinctive identity.
-      </p>
 
-      <div className="custom-points">
-        <div className="point">
-          <span>01</span>
-          <p>Hand-finished detailing</p>
-        </div>
-        <div className="point">
-          <span>02</span>
-          <p>Premium sourced fabrics</p>
-        </div>
-        <div className="point">
-          <span>03</span>
-          <p>Limited batch production</p>
-        </div>
-      </div>
-    </div>
-
-    <div className="custom-image">
-      <img
-        src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?q=80&w=1974&auto=format&fit=crop"
-        alt="Customization Process"
-      />
-    </div>
-
-  </div>
-</section>
 
      {/* ULTRA PRODUCT GRID */}
 <section className="products">
