@@ -1,0 +1,166 @@
+/* ===================================== */
+/* ========== HERO SECTION ============= */
+/* ===================================== */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  background: black;
+  margin-top: -50px;
+}
+
+/* ===================================== */
+/* ========== HORIZONTAL SLIDER ======== */
+/* ===================================== */
+
+.hero-slider {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  transition: transform 0.8s ease;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+/* ===================================== */
+/* ========== OVERLAY ================== */
+/* ===================================== */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.75) 20%,
+    rgba(0,0,0,0.4) 60%,
+    rgba(0,0,0,0.8) 100%
+  );
+}
+
+/* ===================================== */
+/* ========== HERO CONTENT ============= */
+/* ===================================== */
+
+.hero-content {
+  position: absolute;
+  left: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  max-width: 600px;
+}
+
+.hero-tag {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #ff2e63; /* Anime neon accent */
+  margin-bottom: 20px;
+  display: block;
+}
+
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 60px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 35px;
+}
+
+/* ===================================== */
+/* ========== BUTTON =================== */
+/* ===================================== */
+
+.btn-primary {
+  padding: 12px 32px;
+  background: #ff2e63;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #ff004c;
+}
+
+/* ===================================== */
+/* ========== INDICATORS =============== */
+/* ===================================== */
+
+.indicators {
+  margin-top: 30px;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.active-dot {
+  width: 24px;
+  background: #ff2e63;
+}
+
+/* ===================================== */
+/* ========== ARROWS =================== */
+/* ===================================== */
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  border: none;
+  color: white;
+  font-size: 26px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.arrow:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+.left {
+  left: 20px;
+}
+
+.right {
+  right: 20px;
+}
+
+/* ===================================== */
+/* ========== RESPONSIVE =============== */
+/* ===================================== */
+
+@media (max-width: 768px) {
+  .hero-content {
+    left: 5%;
+    max-width: 90%;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+  }
+}

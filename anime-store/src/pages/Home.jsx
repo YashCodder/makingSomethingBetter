@@ -1,6 +1,7 @@
 import React from "react";
 import "../index.css";
 import Navbar from "../components/Navbar";
+import Hero from "./hero/Hero";
 import CustomizedSection from "./customizedsection/CustomizedSection";
 
 const Home = () => {
@@ -9,35 +10,7 @@ const Home = () => {
     <div className="home">
 
       <Navbar />
-
-      
-
-      {/* Luxury Hero */}
-      <section className="hero">
-
-        <div className="hero-carousel">
-          <div className="slide slide1"></div>
-          <div className="slide slide2"></div>
-          <div className="slide slide3"></div>
-        </div>
-
-        <div className="hero-overlay"></div>
-
-        <div className="hero-text">
-          <h1>
-            Curated Anime
-            <br />
-            Luxury Essentials
-          </h1>
-
-          <p>Elevated merchandise for the modern collector.</p>
-
-          <button className="btn-primary">
-            Explore Collection
-          </button>
-        </div>
-
-      </section>
+      <Hero />
 
       {/* Editorial Split Section */}
       <section className="editorial">
