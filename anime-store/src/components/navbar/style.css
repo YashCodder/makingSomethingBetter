@@ -1,0 +1,172 @@
+/* ================= NAVBAR ================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+  background: #ffffff;
+  border-bottom: 1px solid #eee;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 60px;
+  z-index: 2000;
+}
+
+/* LEFT */
+
+.menu-btn {
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.menu-btn:hover {
+  opacity: 0.6;
+}
+
+/* CENTER */
+
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo-text {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  letter-spacing: 5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* RIGHT */
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.icon-wrapper {
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.icon-wrapper:hover {
+  opacity: 0.6;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: #111;
+  color: white;
+  font-size: 10px;
+  padding: 3px 7px;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+/* ================= OVERLAY ================= */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+  z-index: 1500;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ================= SIDE MENU ================= */
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 100vh;
+  background: #f7f7f7;
+  padding: 30px;
+
+  transform: translateX(-100%);
+  transition: 0.35s ease;
+  z-index: 2001;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.side-menu.open {
+  transform: translateX(0);
+}
+
+/* Header */
+
+.side-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.side-menu-header h3 {
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.close-btn {
+  cursor: pointer;
+}
+
+/* Content */
+
+.side-menu-content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow-y: auto;
+}
+
+.side-menu-content span {
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.side-menu-content span:hover {
+  padding-left: 8px;
+  color: #ff2e63;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .logo-text {
+    font-size: 14px;
+    letter-spacing: 3px;
+  }
+
+  .side-menu {
+    width: 85%;
+  }
+}
