@@ -3,6 +3,7 @@ import "../index.css";
 import Navbar from "../components/navbar/Navbar";
 import Hero from "./hero/Hero";
 import CustomizedSection from "./customizedsection/CustomizedSection";
+import Editorial from "../components/editorial/Editorial";
 
 const Home = () => {
 
@@ -11,7 +12,7 @@ const Home = () => {
 
       <Navbar />
       <Hero />
-
+      <Editorial />
       {/* Editorial Split Section */}
       <section className="editorial">
         <div className="editorial-image">

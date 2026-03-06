@@ -1,0 +1,164 @@
+/* ================================ */
+/* ===== SHOP COLLECTIONS ========= */
+/* ================================ */
+
+.collections-section {
+  padding: 120px 8%;
+  background: #f5f5f5;
+  overflow: hidden;
+}
+
+/* Header */
+
+.collections-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.collections-header h2 {
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #111;
+}
+
+/* Arrow Buttons */
+
+.collections-arrows {
+  display: flex;
+  gap: 10px;
+}
+
+.collections-arrows button {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.collections-arrows button:hover {
+  background: #111;
+  color: white;
+  border-color: #111;
+}
+
+/* Slider */
+
+.collections-slider {
+  display: flex;
+  gap: 40px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+}
+
+.collections-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* Cards */
+
+.collection-card {
+  min-width: 300px;
+  position: relative;
+  transition: transform 0.4s ease;
+}
+
+.collection-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Image */
+
+.collection-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+}
+
+/* Label */
+
+.collection-label {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+
+  background: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .collection-card {
+    min-width: 240px;
+  }
+
+  .collection-card img {
+    height: 200px;
+  }
+}
+.collection-card{
+  position: relative;
+  min-width: 320px;
+  margin-right: 40px;
+}
+
+.collection-card img{
+  width: 100%;
+  height: 320px;
+  object-fit: contain;
+  transition: transform .5s ease;
+}
+
+.collection-card:hover img{
+  transform: scale(1.05);
+}
+
+
+/* Bottom Category Button */
+
+.collection-btn{
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: black;
+  color: white;
+
+  padding: 12px 22px;
+
+  font-size: 13px;
+  letter-spacing: 1px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  text-decoration: none;
+
+  border-radius: 4px;
+
+  transition: all .3s ease;
+}
+
+.collection-btn:hover{
+  background: #111;
+  transform: translateX(-50%) translateY(-3px);
+}
