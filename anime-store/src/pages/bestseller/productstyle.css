@@ -266,3 +266,79 @@
   font-size: 15px;
   color: #ff0000;
 }
+
+/* Responsive Product Card Styles */
+@media (max-width: 768px) {
+  .product-info h3 {
+    font-size: 14px;
+  }
+
+  .new-price {
+    font-size: 14px;
+  }
+
+  .old-price {
+    font-size: 12px;
+  }
+
+  .discount-badge {
+    font-size: 12px;
+    padding: 3px 8px;
+  }
+
+  /* Make wishlist icon always visible on mobile */
+  .wishlist {
+    opacity: 1;
+    pointer-events: auto;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .product-image-container {
+    border-radius: 12px;
+  }
+
+  .product-card {
+    border-radius: 12px;
+  }
+
+  /* Permanent visibility for touch devices */
+  .sizes {
+    opacity: 1;
+    position: absolute;
+    bottom: 38px;
+    transform: translateY(0);
+    gap: 4px;
+    padding: 6px 0;
+    background: rgba(255, 255, 255, .8);
+    width: 100%;
+  }
+
+  .card-btn-container {
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(0);
+    pointer-events: auto;
+    width: 100%;
+  }
+
+  .cart-btn {
+    padding: 12px 10px;
+    font-size: 11px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+
+  .product-info h3 {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  .price-container {
+    gap: 6px;
+  }
+}
