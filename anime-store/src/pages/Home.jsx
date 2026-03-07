@@ -4,14 +4,17 @@ import Navbar from "../components/navbar/Navbar";
 import Hero from "./hero/Hero";
 import CustomizedSection from "./customizedsection/CustomizedSection";
 import Editorial from "../components/editorial/Editorial";
+import Bestseller from "./bestseller/Bestseller";
 
 const Home = () => {
 
   return (
+    
     <div className="home">
 
       <Navbar />
       <Hero />
+      <Bestseller/>
       <Editorial />
       {/* Editorial Split Section */}
       <section className="editorial">
@@ -136,8 +139,9 @@ const Home = () => {
           © 2026 Indian Anime Store
         </div>
       </footer>
+      </div>
 
-    </div>
+
   );
 };
 

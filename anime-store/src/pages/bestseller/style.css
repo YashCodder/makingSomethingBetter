@@ -1,0 +1,80 @@
+.bestseller-container {
+    margin-top: 35px;
+    height: 100%;
+    width: 100%;
+}
+
+/* Title */
+.bestseller-banner {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 47px;
+    text-transform: uppercase;
+    color: #000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.bestseller-banner p {
+    margin: 0;
+}
+
+/* Products wrapper */
+.products {
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.bestseller-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    width: 100%;
+}
+
+
+.product-card {
+
+    width: 100%
+}
+
+/* Load More Button */
+.bestseller-load-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.bestseller-load-more button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 15px 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 2px;
+    border: 2px solid #000;
+}
+
+.bestseller-load-more button:hover {
+    background-color: #fff;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.bestseller-load-more button:active {
+    transform: translateY(0);
+}

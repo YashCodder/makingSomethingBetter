@@ -1,0 +1,268 @@
+/* PRODUCT CARD */
+.product-card {
+  position: relative;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: #fff;
+  /* Ensures child elements follow rounded corners */
+}
+
+/* IMAGE CONTAINER */
+.product-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  background: #f7f7f7;
+  border-radius: 15px;
+  /* Fully rounded top and bottom */
+  display: flex;
+  /* Helps eliminate white-space gaps */
+}
+
+/* PRODUCT IMAGES */
+.product-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* Eliminates the tiny descriptor/line-height gap at the bottom */
+
+  transition: opacity .6s cubic-bezier(0.4, 0, 0.2, 1), transform .8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* FRONT IMAGE */
+.front-image {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* HOVER IMAGE */
+.hover-image {
+  opacity: 0;
+  z-index: 2;
+  transform: scale(1.15);
+  /* Start zoomed in for "zoom out" effect */
+  transition: opacity .6s cubic-bezier(0.4, 0, 0.2, 1) 0.3s, transform .8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+}
+
+/* IMAGE SWAP */
+.product-card:hover .front-image {
+  opacity: 0;
+}
+
+.product-card:hover .hover-image {
+  opacity: 1;
+  transform: scale(1);
+  /* Zoom out to original scale */
+}
+
+/* IMAGE ZOOM ON FRONT */
+.product-card:hover .front-image {
+  transform: scale(1.05);
+  /* Subtle zoom on the front image before it fades */
+}
+
+/* DISCOUNT BADGE */
+.discount-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ff0000;
+  /* Red background */
+  color: #fff;
+  font-size: 14px;
+  /* Increased size */
+  padding: 4px 10px;
+  /* Increased padding */
+  z-index: 4;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+/* WISHLIST ICON */
+.wishlist {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 22px;
+  /* Increased size */
+  background: white;
+  border-radius: 50%;
+  width: 42px;
+  /* Increased size */
+  height: 42px;
+  /* Increased size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 6;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  color: #000;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.product-card:hover .wishlist {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.wishlist:hover {
+  background: #000;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* OVERLAY */
+.product-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* Elements stack from bottom */
+  align-items: center;
+  pointer-events: none;
+}
+
+/* SIZE SELECTOR */
+.sizes {
+  position: absolute;
+  bottom: 50px;
+  /* Above the button (18px padding * 2 + ~14px text) */
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+
+  background: rgba(255, 255, 255, .35);
+  backdrop-filter: blur(4px);
+
+  padding: 8px 0;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
+  /* 0.15s delay after Add to Cart */
+}
+
+.product-card:hover .sizes {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* SIZE BUTTON */
+.size-item {
+  font-size: 13px;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  background: transparent;
+  color: #000;
+  transition: all 0.2s ease;
+  font-weight: 600;
+}
+
+.size-item:hover {
+  background: transparent;
+  color: #000;
+  transform: scale(1.15);
+  font-weight: 700;
+}
+
+/* ADD TO CART */
+.card-btn-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  box-sizing: border-box;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  pointer-events: none;
+}
+
+.product-card:hover .card-btn-container {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.cart-btn {
+  background: black;
+  color: white;
+  border: none;
+  /* No border for full-width look */
+  padding: 18px 18px;
+  /* Slightly taller */
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  border-radius: 0;
+  /* Remove radius to ensure edge contact if needed, or keep to match container */
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  margin: 0;
+  display: block;
+}
+
+.cart-btn:hover {
+  background: white;
+  color: black;
+}
+
+/* PRODUCT INFO */
+.product-info {
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-info h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #000;
+  text-align: center;
+}
+
+/* PRICE */
+.price-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 13px;
+}
+
+.new-price {
+  font-weight: 700;
+  font-size: 15px;
+  color: #ff0000;
+}
