@@ -6,6 +6,8 @@ import Home from "./pages/Home";
 import Product from "./pages/Product";
 import Checkout from "./pages/Checkout";
 import SlashTransition from "./components/SlashTransition";
+import { AuthProvider } from "./context/AuthContext";
+import Profile from "./components/profile/Profile";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -18,6 +20,7 @@ function AnimatedRoutes() {
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<Product />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </AnimatePresence>
     </>
@@ -26,10 +29,12 @@ function AnimatedRoutes() {
 
 export default function App() {
   return (
-    <CartProvider> {/* ✅ wrapped everything */}
-      <BrowserRouter>
-        <AnimatedRoutes />
-      </BrowserRouter>
-    </CartProvider>
+    <AuthProvider>
+      <CartProvider> {/* ✅ wrapped everything */}
+        <BrowserRouter>
+          <AnimatedRoutes />
+        </BrowserRouter>
+      </CartProvider>
+    </AuthProvider>
   );
 }
