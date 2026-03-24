@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { FiShoppingBag, FiUser, FiMenu, FiX } from "react-icons/fi";
+import { Link } from "react-router-dom";
 import "./style.css";
+import Login from "../login/Login";
+import { useAuth } from "../../context/AuthContext";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [loginOpen, setLoginOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const { user, setUser } = useAuth();
 
   return (
     <>
@@ -29,8 +35,37 @@ const Navbar = () => {
             <span className="cart-count">2</span>
           </div>
 
-          <div className="icon-wrapper">
-            <FiUser size={22} />
+          <div className="icon-wrapper" style={{ position: "relative" }}>
+            <div onClick={() => user ? setUserMenuOpen(!userMenuOpen) : setLoginOpen(true)}>
+              {user ? (
+                <img src={user.picture} alt="Avatar" style={{ width: 26, height: 26, borderRadius: "50%", cursor: "pointer", objectFit: "cover" }} />
+              ) : (
+                <FiUser size={22} style={{ cursor: "pointer" }} />
+              )}
+            </div>
+
+            {/* Dropdown Menu */}
+            {userMenuOpen && user && (
+              <div style={{
+                position: "absolute", top: "40px", right: "0", background: "#fff", 
+                boxShadow: "0 10px 30px rgba(0,0,0,0.1)", borderRadius: "12px", padding: "10px", 
+                display: "flex", flexDirection: "column", gap: "5px", zIndex: 1000, minWidth: "150px"
+              }}>
+                <Link 
+                  to="/profile" 
+                  style={{ textDecoration: "none", color: "#111", padding: "10px 14px", borderRadius: "8px", fontWeight: "600", fontSize: "14px", display: "block" }} 
+                  onClick={() => setUserMenuOpen(false)}
+                >
+                  My Profile
+                </Link>
+                <div 
+                  style={{ color: "#e11d48", padding: "10px 14px", borderRadius: "8px", fontWeight: "600", cursor: "pointer", fontSize: "14px" }}
+                  onClick={() => setUser(null)}
+                >
+                  Log Out
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </nav>
@@ -72,6 +107,9 @@ const Navbar = () => {
         </div>
 
       </div>
+
+      {/* ================= LOGIN MODAL ================= */}
+      <Login isOpen={loginOpen} onClose={() => setLoginOpen(false)} />
     </>
   );
 };
