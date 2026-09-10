@@ -1,148 +1,95 @@
-import React from "react";
-import "../index.css";
-import Navbar from "../components/navbar/Navbar";
-import Hero from "./hero/Hero";
-import CustomizedSection from "./customizedsection/CustomizedSection";
-import Editorial from "../components/editorial/Editorial";
-import Bestseller from "./bestseller/Bestseller";
+import React from 'react';
+import { Hero } from '../components/Hero';
+import { Marquee } from '../components/Marquee';
+import { BrandStatement } from '../components/BrandStatement';
+import { ProductGrid } from '../components/ProductGrid';
+import { SocialGrid } from '../components/SocialGrid';
+import { Newsletter } from '../components/Newsletter';
+import { products } from '../data/products';
+import { drops } from '../data/drops';
 
-const Home = () => {
+export const Home = () => {
+  const currentDropProducts = products.filter(p => p.drop === "DROP 001");
+  const currentDropInfo = drops.find(d => d.code === "DROP 001");
 
   return (
-    
-    <div className="home">
-
-      <Navbar />
+    <div>
+      {/* HERO */}
       <Hero />
-      <Bestseller/>
-      <Editorial />
-      {/* Editorial Split Section */}
-      <section className="editorial">
-        <div className="editorial-image">
-          <img
-            src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1974&auto=format&fit=crop"
-            alt="Oversized Streetwear"
-          />
-        </div>
 
-        <div className="editorial-text">
-          <h2>Designed With Precision</h2>
-          <p>
-            Every piece in our collection is thoughtfully designed,
-            crafted with premium fabrics and attention to detail.
-          </p>
-          <button className="btn-outline">Discover</button>
-        </div>
-      </section>
+      {/* MARQUEE */}
+      <Marquee />
 
-      {/* ================= CUSTOMIZATION SECTION ================= */}
-      <CustomizedSection />
-      
+      {/* BRAND STATEMENT */}
+      <BrandStatement />
 
-      {/* ULTRA PRODUCT GRID */}
-      <section className="products">
-        <div className="products-header">
-          <h2>Selected Pieces</h2>
-          <p>Premium anime-inspired essentials for the modern collector.</p>
-        </div>
-
-        <div className="product-grid">
-          {[
-            {
-              name: "Shadow Clan Hoodie",
-              price: "₹1,999",
-              tag: "NEW",
-              image:
-                "https://images.unsplash.com/photo-1602810319428-019690571b5b?q=80&w=1974&auto=format&fit=crop",
-            },
-            {
-              name: "Tokyo Drift Tee",
-              price: "₹1,499",
-              image:
-                "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&w=1974&auto=format&fit=crop",
-            },
-            {
-              name: "Midnight Street Jacket",
-              price: "₹2,799",
-              image:
-                "https://images.unsplash.com/photo-1603252109303-2751441dd157?q=80&w=1974&auto=format&fit=crop",
-            },
-            {
-              name: "Neo Oversized Drop",
-              price: "₹1,699",
-              image:
-                "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=1974&auto=format&fit=crop",
-            },
-            {
-              name: "Limited Edition Hoodie",
-              price: "₹2,299",
-              image:
-                "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1974&auto=format&fit=crop",
-            },
-            {
-              name: "Urban Shinobi Fit",
-              price: "₹1,899",
-              image:
-                "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?q=80&w=1974&auto=format&fit=crop",
-            },
-          ].map((item, index) => (
-            <div key={index} className="product-card">
-              <div className="product-image-wrapper">
-                {item.tag && <span className="product-badge">{item.tag}</span>}
-                <img src={item.image} alt={item.name} />
-                <div className="product-overlay">
-                  <button className="view-btn">View Product</button>
-                </div>
-              </div>
-
-              <div className="product-info">
-                <h4>{item.name}</h4>
-                <p>{item.price}</p>
+      {/* CURRENT DROP SECTION */}
+      <section id="current-drop" style={{ padding: '90px 0', backgroundColor: '#0A0A0A' }}>
+        <div className="container">
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'flex-end',
+              justifyContent: 'space-between',
+              marginBottom: '48px',
+              flexWrap: 'wrap',
+              gap: '24px',
+              borderBottom: '1px solid rgba(247, 246, 242, 0.1)',
+              paddingBottom: '24px'
+            }}
+          >
+            <div>
+              <span className="archive-badge" style={{ marginBottom: '12px' }}>
+                CURRENT RELEASE
+              </span>
+              <h2
+                style={{
+                  fontFamily: 'Syne, sans-serif',
+                  fontSize: 'clamp(2rem, 4.5vw, 3.8rem)',
+                  fontWeight: 800,
+                  letterSpacing: '-0.02em',
+                  textTransform: 'uppercase',
+                  color: '#F7F6F2',
+                  margin: 0
+                }}
+              >
+                CURRENT DROP
+              </h2>
+              <div
+                style={{
+                  fontFamily: 'JetBrains Mono, monospace',
+                  fontSize: '0.85rem',
+                  color: '#8E8E93',
+                  marginTop: '8px'
+                }}
+              >
+                {currentDropInfo?.code} / {currentDropInfo?.title} — {currentDropProducts.length} T-SHIRTS
               </div>
             </div>
-          ))}
+
+            <div
+              style={{
+                fontFamily: 'JetBrains Mono, monospace',
+                fontSize: '0.78rem',
+                color: '#55555B',
+                textAlign: 'right'
+              }}
+            >
+              RELEASED: {currentDropInfo?.releaseDate}<br />
+              CATEGORY: T-SHIRTS ONLY
+            </div>
+          </div>
+
+          {/* ASYMMETRIC PRODUCT GRID */}
+          <ProductGrid products={currentDropProducts} asymmetric={true} />
         </div>
       </section>
 
-      {/* Large Statement Banner */}
-      <section className="statement">
-        <h2>
-          Minimal.
-          <br />
-          Timeless.
-          <br />
-          Iconic.
-        </h2>
-      </section>
+      {/* SOCIAL GRID */}
+      <SocialGrid />
 
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-inner">
-          <div>
-            <h4>Indian Anime Store</h4>
-            <p>Elevated anime fashion & collectibles.</p>
-          </div>
-
-          <div>
-            <p>Shop</p>
-            <p>Collections</p>
-            <p>Contact</p>
-          </div>
-
-          <div>
-            <p>Instagram</p>
-            <p>Twitter</p>
-          </div>
-        </div>
-
-        <div className="copyright">
-          © 2026 Indian Anime Store
-        </div>
-      </footer>
-      </div>
-
-
+      {/* NEWSLETTER */}
+      <Newsletter />
+    </div>
   );
 };
-
-export default Home;
